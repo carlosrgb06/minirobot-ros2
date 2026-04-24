@@ -1,6 +1,6 @@
 # minibot-ros2
 
-> Robot diferencial autónomo de 4 ruedas construido sobre ROS2 Humble y Arduino UNO Q.
+> Robot autónomo de 4 ruedas construido sobre ROS2 Humble y Arduino UNO Q.
 > Proyecto personal para aprender cinemática diferencial, odometría, PID y navegación autónoma con Nav2.
 
 ![Estado](https://img.shields.io/badge/estado-en%20desarrollo-yellow)
@@ -12,8 +12,8 @@
 
 ## ¿Qué es este proyecto?
 
-minibot-ros2 es un robot móvil diferencial construido desde cero como proyecto de aprendizaje
-estructurado. El objetivo no es solo que el robot funcione — es entender cada subsistema
+minirobot-ros2 es un robot construido desde cero como proyecto de aprendizaje. 
+El objetivo no es solo que el robot funcione sino que entender cada subsistema
 desde los fundamentos matemáticos hasta la implementación en ROS2.
 
 El robot es capaz de:
