@@ -38,9 +38,7 @@ Migración a CSI evaluable en fases futuras.
 **Contexto:** Se necesita controlar 4 motores DC con encoder.
 
 **Justificación:** El L298N cae ~2V por canal por su diseño lineal,
-reduciendo torque disponible. El TB6612FNG usa MOSFETs — eficiencia
->90%, menor disipación de calor, y footprint más pequeño.
-Costo similar.
+reduciendo torque disponible.
 
 ---
 
