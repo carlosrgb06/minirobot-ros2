@@ -15,18 +15,30 @@ minibot-ros2 es un robot autónomo de 4 ruedas con arquitectura de dos capas de 
 | Alimentación | LiPo 2S 2200mAh · Buck LM2596 | Potencia motores y lógica |
 
 ## Diagrama de capas
-┌─────────────────────────────────────┐
-│         Arduino UNO Q               │
-│  ┌──────────────┐ ┌──────────────┐  │
-│  │ MPU QRB2210  │ │ MCU STM32    │  │
-│  │ Debian/ROS2  │◄►│ Zephyr/Ardu │  │
-│  │ Navegación   │ │ PID motores  │  │
-│  │ Percepción   │ │ Encoders     │  │
-│  └──────┬───────┘ └──────┬───────┘  │
-└─────────┼────────────────┼──────────┘
-│                │
-Cámara USB      TB6612FNG × 2
-IMU I²C         4× Motor + encoder
+```mermaid
+graph TD
+    subgraph UNO_Q["Arduino UNO Q"]
+        MPU["MPU — Qualcomm QRB2210\nDebian Linux · ROS2 Humble\nNav2 · OpenCV · TF2"]
+        MCU["MCU — STM32U585\nZephyr · Arduino\nPID · Encoders · PWM"]
+        MPU <-->|UART Bridge| MCU
+    end
+
+    CAM["Cámara USB UVC"] --> MPU
+    IMU["IMU MPU-6050\nI²C"] --> MCU
+
+    MCU --> DRV1["Driver TB6612FNG #1"]
+    MCU --> DRV2["Driver TB6612FNG #2"]
+
+    DRV1 --> M1["Motor + encoder\nIzq. delantero"]
+    DRV1 --> M2["Motor + encoder\nIzq. trasero"]
+    DRV2 --> M3["Motor + encoder\nDer. delantero"]
+    DRV2 --> M4["Motor + encoder\nDer. trasero"]
+
+    BAT["LiPo 2S\n7.4V · 2200mAh"] --> BUCK["Buck LM2596\n→ 5V lógica"]
+    BAT --> DRV1
+    BAT --> DRV2
+    BUCK --> UNO_Q
+```
 
 ## Stack de software
 
