@@ -27,17 +27,30 @@ El robot es capaz de:
 
 ## Arquitectura 
 
-┌─────────────────────────────────────┐
-│         Arduino UNO Q               │
-│  ┌──────────────┐ ┌──────────────┐  │
-│  │ MPU QRB2210  │ │ MCU STM32    │  │
-│  │ Debian/ROS2  │◄►│ PID motores  │  │
-│  │ Nav2 · OpenCV│ │ Encoders     │  │
-│  └──────┬───────┘ └──────┬───────┘  │
-└─────────┼────────────────┼──────────┘
-│                │
-Cámara USB      TB6612FNG × 2
-IMU MPU-6050    4× Motor + encoder
+```mermaid
+graph TD
+    subgraph UNO_Q["Arduino UNO Q"]
+        MPU["MPU — Qualcomm QRB2210\nDebian Linux · ROS2 Humble\nNav2 · OpenCV · TF2"]
+        MCU["MCU — STM32U585\nZephyr · Arduino\nPID · Encoders · PWM"]
+        MPU <-->|UART Bridge| MCU
+    end
+
+    CAM["Cámara USB UVC"] --> MPU
+    IMU["IMU MPU-6050\nI²C"] --> MCU
+
+    MCU --> DRV1["Driver TB6612FNG #1"]
+    MCU --> DRV2["Driver TB6612FNG #2"]
+
+    DRV1 --> M1["Motor + encoder\nIzq. delantero"]
+    DRV1 --> M2["Motor + encoder\nIzq. trasero"]
+    DRV2 --> M3["Motor + encoder\nDer. delantero"]
+    DRV2 --> M4["Motor + encoder\nDer. trasero"]
+
+    BAT["LiPo 2S\n7.4V · 2200mAh"] --> BUCK["Buck LM2596\n→ 5V lógica"]
+    BAT --> DRV1
+    BAT --> DRV2
+    BUCK --> UNO_Q
+```
 → Documentación técnica completa en [`docs/architecture.md`](docs/architecture.md)
 
 ---
