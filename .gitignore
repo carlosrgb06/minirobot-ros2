@@ -1,0 +1,22 @@
+# ROS2
+ros2_ws/build/
+ros2_ws/install/
+ros2_ws/log/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.env
+
+# Arduino / PlatformIO
+firmware/.pio/
+firmware/.vscode/
+
+# CAD
+*.blend1
+*.stl.bak
+
+# OS
+.DS_Store
+Thumbs.db
