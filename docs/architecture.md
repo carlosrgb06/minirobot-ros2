@@ -2,7 +2,7 @@
 
 ## Visión general
 
-minibot-ros2 es un robot diferencial autónomo de 4 ruedas con arquitectura de dos capas de cómputo.
+minibot-ros2 es un robot autónomo de 4 ruedas con arquitectura de dos capas de cómputo.
 
 ## Hardware principal
 
