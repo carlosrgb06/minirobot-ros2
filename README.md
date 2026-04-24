@@ -86,6 +86,7 @@ graph TD
 ---
 
 ## Estructura del repositorio
+```text
 minibot-ros2/
 ├── docs/               # Documentación técnica
 │   ├── architecture.md # Arquitectura de hardware y software
@@ -101,6 +102,8 @@ minibot-ros2/
 │       └── minibot_control/   # Nodos de control y odometría
 ├── media/              # Fotos y videos del robot
 └── .github/            # Templates de issues
+```
+
 
 ---
 
