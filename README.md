@@ -65,9 +65,8 @@ El robot es capaz de:
 
 ## Contexto
 
-Proyecto desarrollado por **Carlos** — estudiante de Ingeniería en Robótica y Sistemas
-Inteligentes (IRS) en Tec de Monterrey, 2do semestre. Miembro del equipo Vanttec
-(proyecto USV autónomo).
+Proyecto desarrollado por **Carlos Reyes** — estudiante de Ingeniería en Robótica y Sistemas
+Inteligentes (IRS) en Tec de Monterrey.
 
 El proyecto está diseñado como currículo de aprendizaje paralelo al semestre universitario,
 documentado profesionalmente para portafolio.
