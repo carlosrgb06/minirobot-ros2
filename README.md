@@ -26,6 +26,18 @@ El robot es capaz de:
 ---
 
 ## Arquitectura 
+
+┌─────────────────────────────────────┐
+│         Arduino UNO Q               │
+│  ┌──────────────┐ ┌──────────────┐  │
+│  │ MPU QRB2210  │ │ MCU STM32    │  │
+│  │ Debian/ROS2  │◄►│ PID motores  │  │
+│  │ Nav2 · OpenCV│ │ Encoders     │  │
+│  └──────┬───────┘ └──────┬───────┘  │
+└─────────┼────────────────┼──────────┘
+│                │
+Cámara USB      TB6612FNG × 2
+IMU MPU-6050    4× Motor + encoder
 → Documentación técnica completa en [`docs/architecture.md`](docs/architecture.md)
 
 ---
@@ -61,6 +73,22 @@ El robot es capaz de:
 ---
 
 ## Estructura del repositorio
+minibot-ros2/
+├── docs/               # Documentación técnica
+│   ├── architecture.md # Arquitectura de hardware y software
+│   ├── decisions.md    # Registro de decisiones de diseño
+│   └── bom.md          # Lista de materiales
+├── hardware/
+│   ├── cad/            # Archivos STL y STEP del chasis
+│   └── schematics/     # Diagramas eléctricos
+├── firmware/           # Código STM32 — PID, encoders, motores
+├── ros2_ws/            # Workspace ROS2
+│   └── src/
+│       ├── minibot_bringup/   # Launch files
+│       └── minibot_control/   # Nodos de control y odometría
+├── media/              # Fotos y videos del robot
+└── .github/            # Templates de issues
+
 ---
 
 ## Contexto
